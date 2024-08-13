@@ -1,0 +1,3 @@
+class WeatherModel extends Equatable {
+
+}
