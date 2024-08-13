@@ -1,11 +1,12 @@
-import 'dart:nativewrappers/_internal/vm/lib/core_patch.dart';
+import 'package:weather_app/features/city_search/data/repository/city_search_repository_impl.dart';
 import 'package:weather_app/features/city_search/domain/repository/city_search-repository.dart';
-import 'models/weather_data.dart';
 
 class CitySearchInteractor{
-  final CitySearchRepository _repository = CitySearchRepository();
+  final CitySearchRepositoryImpl _repository = CitySearchRepositoryImpl();
 
-  Future<CitySearchRepository> fetchCurrentWeatherData({required String query}) async {
+  Future<CitySearchRepository> fetchCurrentWeatherData({
+    required query
+      }) async {
     return _repository;
   }
 }

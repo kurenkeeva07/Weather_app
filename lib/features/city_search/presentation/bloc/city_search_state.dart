@@ -3,9 +3,9 @@ part of 'city_search_bloc.dart';
 class CitySearchState extends Equatable{
 
   final WeatherResponseDto? data;
-  final bool? isLoading;
+  final bool isLoading;
 
-  const CitySearchState({this.data,this.isLoading});
+  const CitySearchState({this.data,required this.isLoading});
 
 
   CitySearchState copyWith({

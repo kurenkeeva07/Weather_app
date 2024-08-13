@@ -6,18 +6,11 @@ import 'package:weather_app/features/city_search/presentation/bloc/city_search_b
 class CitySearchPage extends StatelessWidget {
   CitySearchPage({super.key});
 
-  String text = '123';
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Column(
-          children: [
-
-            Text(text, style: TextStyle(fontSize: 20)),
-          ],
-        ),
+        child: _Body(),
       ),
       floatingActionButton: _SearchButton(),
     );
@@ -47,7 +40,7 @@ class _SearchTextField extends StatelessWidget {
     final bloc = context.read<CitySearchBloc>();
     return TextField(
       controller: bloc.searchController,
-      decoration: const InputDecoration(
+      decoration: InputDecoration(
           labelText: 'Search'
       ),
     );
@@ -70,6 +63,29 @@ class _SearchText extends StatelessWidget {
   }
 }
 
+class _Body extends StatelessWidget {
+  const _Body({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<CitySearchBloc, CitySearchState>(
+        builder: (context, state) {
+          if (state.isLoading) {
+            return CircularProgressIndicator();
+          }
+          return ListView(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: _SearchTextField(),
+                ),
+                _SearchText(),
+              ]
+          );
+        }
+    );
+  }
+}
 
 
 

@@ -7,13 +7,5 @@ sealed class CitySearchEvent extends Equatable{
   List<Object?> get props => [];
 }
 
-class CitySearchDataFetched extends CitySearchEvent {
-
-  String? query;
-
-  CitySearchDataFetched(this.query);
-
-  @override
-  List<Object?> get props => [query];
-}
+class CitySearchDataFetched extends CitySearchEvent {}
 
