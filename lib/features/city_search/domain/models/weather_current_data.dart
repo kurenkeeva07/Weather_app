@@ -1,7 +1,6 @@
-import 'package:weather_app/features/city_search/data/models/weather_current_response_dto.dart';
 import 'package:weather_app/features/city_search/domain/models/weather_condition_data.dart';
 
-class WeatherCurrentData {
+class WeatherCurrentData extends Equatable {
 
   final int? lastUpdatedEpoch;
   final String? lastUpdated;
@@ -65,4 +64,37 @@ class WeatherCurrentData {
     required this.gustKph
   }
   );
+
+  @override
+  List<Object?> get props => [
+    lastUpdatedEpoch,
+    lastUpdated,
+    tempC,
+    tempF,
+    isDay,
+    condition,
+    windMph,
+    windKph,
+    windDegree,
+    windDir,
+    pressureMb,
+    pressureIn,
+    preCipMm,
+    preCipIn,
+    humidity,
+    cloud,
+    feelsLikeC,
+    feelsLikeF,
+    windchillC,
+    windchillF,
+    heatIndexC,
+    heatIndexF,
+    dewPointC,
+    dewPointF,
+    visKm,
+    visMiles,
+    uv,
+    gustMph,
+    gustKph
+  ];
 }

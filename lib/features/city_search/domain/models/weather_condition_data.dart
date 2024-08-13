@@ -1,4 +1,4 @@
-class WeatherConditionData {
+class WeatherConditionData extends Equatable {
   final String? text;
   final String? icon;
   final int? code;
@@ -8,4 +8,11 @@ class WeatherConditionData {
     required this.icon,
     required this.code
   });
+
+  @override
+  List<Object?> get props => [
+    text,
+    icon,
+    code,
+  ];
 }

@@ -54,6 +54,22 @@ class _SearchTextField extends StatelessWidget {
   }
 }
 
+class _SearchText extends StatelessWidget {
+  const _SearchText({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<CitySearchBloc, CitySearchState>(
+        builder: (context, state) {
+          return Text(
+            state.data?.toString() ?? '',
+            style: TextStyle(fontSize: 20),
+          );
+        }
+    );
+  }
+}
+
 
 
 

@@ -1,4 +1,4 @@
-class WeatherLocationData {
+class WeatherLocationData extends Equatable {
   final String? name;
   final String? region;
   final String? country;
@@ -18,4 +18,16 @@ class WeatherLocationData {
     required this.localTimeEpoch,
     required this.localTime
   });
+
+  @override
+  List<Object?> get props => [
+    name,
+    region,
+    country,
+    lat,
+    lon,
+    tzID,
+    localTimeEpoch,
+    localTime,
+  ];
 }

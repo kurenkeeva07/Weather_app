@@ -7,7 +7,9 @@ import '../../../../core/network_constants.dart';
 
 class CitySearchApi {
 
-  Future<WeatherResponseDto?> fetchCurrentWeatherData({required String query}) async {
+  Future<WeatherResponseDto?> fetchCurrentWeatherData({
+    required String query
+  }) async {
 
     final uri = Uri.parse('${NetworkConstants.baseURL}/current.json?key=${NetworkConstants.apiKey}&q=$query&aqi=no');
 
