@@ -31,34 +31,23 @@ class CitySearchMapper {
 
   WeatherCurrentData mapWeatherCurrentData(WeatherCurrentResponseDto dto) {
     return WeatherCurrentData(
-        lastUpdatedEpoch: dto.lastUpdatedEpoch,
+
         lastUpdated: dto.lastUpdated,
         tempC: dto.tempC,
-        tempF: dto.tempF,
         isDay: dto.isDay,
         condition: dto.condition != null ? mapWeatherConditionData(dto.condition!) : null,
-        windMph: dto.windMph,
         windKph: dto.windKph,
         windDegree: dto.windDegree,
-        windDir: dto.windDir,
         pressureMb: dto.pressureMb,
-        pressureIn: dto.pressureIn,
         preCipMm: dto.preCipMm,
-        preCipIn: dto.preCipIn,
         humidity: dto.humidity,
         cloud: dto.cloud,
         feelsLikeC: dto.feelsLikeC,
-        feelsLikeF: dto.feelsLikeF,
         windchillC: dto.windchillC,
-        windchillF: dto.windchillF,
         heatIndexC: dto.heatIndexC,
-        heatIndexF: dto.heatIndexF,
         dewPointC: dto.dewPointC,
-        dewPointF: dto.dewPointF,
         visKm: dto.visKm,
-        visMiles: dto.visMiles,
         uv: dto.uv,
-        gustMph: dto.gustMph,
         gustKph: dto.gustKph);
   }
 
