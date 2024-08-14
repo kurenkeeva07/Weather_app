@@ -1,3 +1,5 @@
+import 'package:equatable/equatable.dart';
+
 class WeatherConditionData extends Equatable {
   final String? text;
   final String? icon;

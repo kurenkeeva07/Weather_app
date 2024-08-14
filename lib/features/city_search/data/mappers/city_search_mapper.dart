@@ -11,63 +11,62 @@ import '../../domain/models/weather_data.dart';
 class CitySearchMapper {
 
   WeatherData mapWeatherData(WeatherResponseDto dto) {
+    final location = dto.location;
+    final current = dto.current;
+
     return WeatherData(
-        location: mapWeatherLocationData(dto.location),
-        current: mapWeatherCurrentData(dto.current),
+        location: location != null ? mapWeatherLocationData(location) : null,
+        current: current != null ? mapWeatherCurrentData(current) : null,
     );
   }
 
-  WeatherLocationData mapWeatherLocationData(WeatherLocationResponseDto? dto) {
+  WeatherLocationData mapWeatherLocationData(WeatherLocationResponseDto dto) {
     return WeatherLocationData(
-        name: dto?.name,
-        region: dto?.region,
-        country: dto?.country,
-        lat: dto?.lat,
-        lon: dto?.lon,
-        tzID: dto?.tzID,
-        localTimeEpoch: dto?.localTimeEpoch,
-        localTime: dto?.localTime
+        name: dto.name,
+        region: dto.region,
+        country: dto.country,
+        localTime: dto.localTime
     );
   }
 
-  WeatherCurrentData mapWeatherCurrentData(WeatherCurrentResponseDto? dto) {
+  WeatherCurrentData mapWeatherCurrentData(WeatherCurrentResponseDto dto) {
     return WeatherCurrentData(
-        lastUpdatedEpoch: dto?.lastUpdatedEpoch,
-        lastUpdated: dto?.lastUpdated,
-        tempC: dto?.tempC,
-        tempF: dto?.tempF,
-        isDay: dto?.isDay,
-        condition: mapWeatherConditionData(dto?.condition),
-        windMph: dto?.windMph,
-        windKph: dto?.windKph,
-        windDegree: dto?.windDegree,
-        windDir: dto?.windDir,
-        pressureMb: dto?.pressureMb,
-        pressureIn: dto?.pressureIn,
-        preCipMm: dto?.preCipMm,
-        preCipIn: dto?.preCipIn,
-        humidity: dto?.humidity,
-        cloud: dto?.cloud,
-        feelsLikeC: dto?.feelsLikeC,
-        feelsLikeF: dto?.feelsLikeF,
-        windchillC: dto?.windchillC,
-        windchillF: dto?.windchillF,
-        heatIndexC: dto?.heatIndexC,
-        heatIndexF: dto?.heatIndexF,
-        dewPointC: dto?.dewPointC,
-        dewPointF: dto?.dewPointF,
-        visKm: dto?.visKm,
-        visMiles: dto?.visMiles,
-        uv: dto?.uv,
-        gustMph: dto?.gustMph,
-        gustKph: dto?.gustKph);
+        lastUpdatedEpoch: dto.lastUpdatedEpoch,
+        lastUpdated: dto.lastUpdated,
+        tempC: dto.tempC,
+        tempF: dto.tempF,
+        isDay: dto.isDay,
+        condition: dto.condition != null ? mapWeatherConditionData(dto.condition!) : null,
+        windMph: dto.windMph,
+        windKph: dto.windKph,
+        windDegree: dto.windDegree,
+        windDir: dto.windDir,
+        pressureMb: dto.pressureMb,
+        pressureIn: dto.pressureIn,
+        preCipMm: dto.preCipMm,
+        preCipIn: dto.preCipIn,
+        humidity: dto.humidity,
+        cloud: dto.cloud,
+        feelsLikeC: dto.feelsLikeC,
+        feelsLikeF: dto.feelsLikeF,
+        windchillC: dto.windchillC,
+        windchillF: dto.windchillF,
+        heatIndexC: dto.heatIndexC,
+        heatIndexF: dto.heatIndexF,
+        dewPointC: dto.dewPointC,
+        dewPointF: dto.dewPointF,
+        visKm: dto.visKm,
+        visMiles: dto.visMiles,
+        uv: dto.uv,
+        gustMph: dto.gustMph,
+        gustKph: dto.gustKph);
   }
 
-  WeatherConditionData mapWeatherConditionData(WeatherConditionDto? dto) {
+  WeatherConditionData mapWeatherConditionData(WeatherConditionDto dto) {
     return WeatherConditionData(
-        text: dto?.text,
-        icon: dto?.icon,
-        code: dto?.code
+        text: dto.text,
+        icon: dto.icon,
+        code: dto.code
     );
   }
 }

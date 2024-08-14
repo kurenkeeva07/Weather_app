@@ -1,6 +1,7 @@
+import 'package:equatable/equatable.dart';
 import 'package:weather_app/features/city_search/data/models/weather_condition_response_dto.dart';
 
-class WeatherCurrentResponseDto {
+class WeatherCurrentResponseDto extends Equatable{
   final int? lastUpdatedEpoch;
   final String? lastUpdated;
   final double? tempC;
@@ -97,4 +98,37 @@ class WeatherCurrentResponseDto {
         gustKph: json['gust_kph']
     );
   }
+
+  @override
+  List<Object?> get props => [
+    lastUpdatedEpoch,
+    lastUpdated,
+    tempC,
+    tempF,
+    isDay,
+    condition,
+    windMph,
+    windKph,
+    windDegree,
+    windDir,
+    pressureMb,
+    pressureIn,
+    preCipMm,
+    preCipIn,
+    humidity,
+    cloud,
+    feelsLikeC,
+    feelsLikeF,
+    windchillC,
+    windchillF,
+    heatIndexC,
+    heatIndexF,
+    dewPointC,
+    dewPointF,
+    visKm,
+    visMiles,
+    uv,
+    gustMph,
+    gustKph
+  ];
 }

@@ -10,9 +10,9 @@ class CitySearchRepositoryImpl implements CitySearchRepository {
 
   @override
   Future<WeatherData?> fetchCurrentWeatherData({
-    required String query
+    required String? query
   }) async {
-    final data = await _citySearchApi.fetchCurrentWeatherData(query: query);
+    final data = await _citySearchApi.fetchCurrentWeatherData(query: query ?? '');
 
     if(data == null) return null;
     return _citySearchMapper.mapWeatherData(data);

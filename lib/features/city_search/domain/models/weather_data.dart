@@ -1,3 +1,4 @@
+import 'package:equatable/equatable.dart';
 import 'package:weather_app/features/city_search/domain/models/weather_current_data.dart';
 import 'package:weather_app/features/city_search/domain/models/weather_location_data.dart';
 

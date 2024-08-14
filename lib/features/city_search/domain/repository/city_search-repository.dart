@@ -1,5 +1,5 @@
 import '../models/weather_data.dart';
 
-abstract class CitySearchRepository{
+abstract class CitySearchRepository {
   Future<WeatherData?> fetchCurrentWeatherData ({required String? query});
 }

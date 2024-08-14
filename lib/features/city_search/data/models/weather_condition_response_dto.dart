@@ -1,4 +1,6 @@
-class WeatherConditionDto{
+import 'package:equatable/equatable.dart';
+
+class WeatherConditionDto extends Equatable{
   final String? text;
   final String? icon;
   final int? code;
@@ -16,4 +18,12 @@ class WeatherConditionDto{
         code: json['code']
     );
   }
+
+  @override
+
+  List<Object?> get props => [
+    text,
+    icon,
+    code
+  ];
 }
