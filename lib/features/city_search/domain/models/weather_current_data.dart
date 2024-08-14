@@ -21,7 +21,7 @@ class WeatherCurrentData extends Equatable {
   final double? uv;
   final double? gustKph;
 
-  WeatherCurrentData({
+  const WeatherCurrentData({
     required this.lastUpdated,
     required this.tempC,
     required this.isDay,

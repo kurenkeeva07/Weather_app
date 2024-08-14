@@ -6,7 +6,7 @@ class WeatherLocationResponseDto extends Equatable{
   final String? country;
   final String? localTime;
 
-  WeatherLocationResponseDto({
+  const WeatherLocationResponseDto({
     required this.name,
     required this.region,
     required this.country,

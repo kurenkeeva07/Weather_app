@@ -20,7 +20,7 @@ class WeatherCurrentResponseDto extends Equatable{
   final double? uv;
   final double? gustKph;
 
-  WeatherCurrentResponseDto({
+  const WeatherCurrentResponseDto({
     required this.lastUpdated,
     required this.tempC,
     required this.isDay,

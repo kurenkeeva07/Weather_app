@@ -6,7 +6,7 @@ class WeatherResponseDto{
   final WeatherLocationResponseDto? location;
   final WeatherCurrentResponseDto? current;
 
-  WeatherResponseDto({
+  const WeatherResponseDto({
     required this.location,
     required this.current
   });

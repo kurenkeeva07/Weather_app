@@ -7,7 +7,7 @@ class WeatherData extends Equatable {
   final WeatherLocationData? location;
   final WeatherCurrentData? current;
 
-  WeatherData({
+  const WeatherData({
     required this.location,
     required this.current
   });

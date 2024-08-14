@@ -6,7 +6,7 @@ class WeatherLocationData extends Equatable {
   final String? country;
   final String? localTime;
 
-  WeatherLocationData({
+  const WeatherLocationData({
     required this.name,
     required this.region,
     required this.country,

@@ -30,12 +30,12 @@ class CitySearchMapper {
   }
 
   WeatherCurrentData mapWeatherCurrentData(WeatherCurrentResponseDto dto) {
+    final condition = dto.condition;
     return WeatherCurrentData(
-
         lastUpdated: dto.lastUpdated,
         tempC: dto.tempC,
         isDay: dto.isDay,
-        condition: dto.condition != null ? mapWeatherConditionData(dto.condition!) : null,
+        condition: condition != null ? mapWeatherConditionData(condition) : null,
         windKph: dto.windKph,
         windDegree: dto.windDegree,
         pressureMb: dto.pressureMb,
