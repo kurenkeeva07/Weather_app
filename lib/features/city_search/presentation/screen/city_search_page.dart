@@ -4,11 +4,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_app/features/city_search/presentation/bloc/city_search_bloc.dart';
 
 class CitySearchPage extends StatelessWidget {
-  CitySearchPage({super.key});
+  const CitySearchPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: Center(
         child: _Body(),
       ),
@@ -40,7 +40,7 @@ class _SearchTextField extends StatelessWidget {
     final bloc = context.read<CitySearchBloc>();
     return TextField(
       controller: bloc.searchController,
-      decoration: InputDecoration(
+      decoration: const InputDecoration(
           labelText: 'Search'
       ),
     );
@@ -56,7 +56,7 @@ class _SearchText extends StatelessWidget {
         builder: (context, state) {
           return Text(
             state.data?.toString() ?? '',
-            style: TextStyle(fontSize: 20),
+            style: const TextStyle(fontSize: 20),
           );
         }
     );
@@ -71,21 +71,23 @@ class _Body extends StatelessWidget {
     return BlocBuilder<CitySearchBloc, CitySearchState>(
         builder: (context, state) {
           if (state.isLoading) {
-            return CircularProgressIndicator();
+            return const CircularProgressIndicator();
           }
           return ListView(
-              children: [
+              children: const [
                 Padding(
-                  padding: const EdgeInsets.all(16.0),
+                  padding: EdgeInsets.all(16.0),
                   child: _SearchTextField(),
                 ),
-                _SearchText(),
+                 _SearchText(),
               ]
           );
         }
     );
   }
 }
+
+
 
 
 
