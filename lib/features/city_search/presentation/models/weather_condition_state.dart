@@ -18,5 +18,4 @@ enum WeatherConditionState {
   final int? code;
   const WeatherConditionState({required this.code});
 
-
 }
