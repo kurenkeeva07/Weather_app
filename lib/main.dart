@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:weather_app/core/di/main_module.dart';
 import 'package:weather_app/features/city_search/presentation/bloc/city_search_bloc.dart';
+import 'package:weather_app/features/di/city_search_module.dart';
 
 import 'features/city_search/presentation/screen/city_search_page.dart';
 
 void main() {
+  initCitySearchModule();
   runApp(const MyApp());
 }
 
@@ -20,7 +23,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: BlocProvider(
-        create: (context) => CitySearchBloc(),
+        create: (context) => getIt<CitySearchBloc>(),
         child: CitySearchPage(),
       ),
     );

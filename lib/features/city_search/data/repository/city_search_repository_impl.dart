@@ -5,8 +5,10 @@ import '../../domain/repository/city_search-repository.dart';
 
 
 class CitySearchRepositoryImpl implements CitySearchRepository {
-  final CitySearchApi _citySearchApi = CitySearchApi();
-  final CitySearchMapper _citySearchMapper = CitySearchMapper();
+  final CitySearchApi _citySearchApi;
+  final CitySearchMapper _citySearchMapper;
+
+  CitySearchRepositoryImpl(this._citySearchApi, this._citySearchMapper);
 
   @override
   Future<WeatherData?> fetchCurrentWeatherData({
