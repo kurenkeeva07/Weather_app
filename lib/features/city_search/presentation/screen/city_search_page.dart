@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:weather_app/features/city_search/domain/models/weather_current_data.dart';
+import 'package:weather_app/features/city_search/presentation/models/weather_condition_state.dart';
+import 'package:weather_app/features/city_search/presentation/models/weather_current_model.dart';
 
 import '../bloc/city_search_bloc.dart';
 
@@ -34,10 +37,9 @@ class _Body extends StatelessWidget {
           SizedBox(
           height: double.infinity,
           width: double.infinity,
-          child: Image.network('https://www.google.com/search/about-this-image?img=H4sIAAAAAAAA_wEXAOj_ChUItfDH5a3U8-2tARDU3aXGt_uyzRPeo6j1FwAAAA%3D%3D&q=https:%2F%2Fin.pinterest.com%2Fpin%2Fcloudy-day-today--43980533853494460%2F&ctx=iv&hl=ru&sa=X&ved=0CAsQg4ILahcKEwjg7Z6Xjo2IAxUAAAAAHQAAAAAQKw'),
           ),
           Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: EdgeInsets.all(16.0),
           child: _SearchTextField(),
           ),
           _SearchText(),
@@ -150,6 +152,57 @@ class _WeatherWidget extends StatelessWidget {
   }
 }
 
+class _Text extends StatelessWidget {
+  const _Text({super.key});
 
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        body: Center(
+    child: Column(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: <Widget>[
+    _getWeatherIcon(WeatherConditionState.sunny),
+    SizedBox(height: 20),
+    Text(
+    'Weather in Kyrgyzstan',
+    style: Theme.of(context).textTheme.headlineMedium,
+    ),
+    SizedBox(height: 10),
+    Text(
+    '22°C', // Simulated temperature
+    style: Theme.of(context).textTheme.headlineMedium,
+    ),
+    SizedBox(height: 10),
+    Text(
+    'Local Time: 15:30', // Simulated local time
+    style: Theme.of(context).textTheme.bodyMedium,
+    ),
+    SizedBox(height: 10),
+    Text(
+    'Location: Bishkek', // Simulated location
+    style: Theme.of(context).textTheme.bodyMedium,
+    ),
+    ],
+    ),
+    ),
+    );
+  }
+}
+
+Widget _getWeatherIcon(WeatherConditionState condition) {
+  switch (condition) {
+    case WeatherConditionState.sunny:
+      return Icon(Icons.wb_sunny, size: 100, color: Colors.yellow);
+    case WeatherConditionState.cloudy:
+      return Icon(Icons.cloud, size: 100, color: Colors.grey);
+    case WeatherConditionState.rain:
+      return Icon(Icons.beach_access, size: 100, color: Colors.blue);
+    case WeatherConditionState.snow:
+      return Icon(Icons.ac_unit, size: 100, color: Colors.lightBlue);
+    default:
+      return Icon(Icons.error, size: 100, color: Colors.red);
+  }
+}
 
 
